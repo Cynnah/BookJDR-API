@@ -1,0 +1,166 @@
+nelmio_api_doc:
+    documentation:
+        host: localhost:8000
+        schemes: "http"
+        info:
+            title: My Skeleton
+            description: This is a skeleton for my API
+            version: 1.0.0
+            contact:
+                name: 'API support'
+                email: "email"
+            license:
+                name: 'Copyright (c) 2018 InnovHealth. All rights reserved.'
+                url: 'url'
+        parameters:
+        definitions:
+            badRequest:
+                type: object
+                properties:
+                    message:
+                        type: string
+                        description: "Error message"
+                        example: "email_not_authorized"
+                    code:
+                        type: integer
+                        description: "Error code"
+                        example: 40003
+                    params:
+                        type: array
+                        description: "Error parameters"
+                        items:
+                            type: string
+                    traceId:
+                        type: string
+                        description: "Uniq log id"
+                        example: '5dfb82297ffbf1.50522081'
+            badResponse:
+                type: object
+                properties:
+                    status:
+                        type: "boolean"
+                        description: "boolean of request success."
+                        example: 'false'
+                    page:
+                        type: "int"
+                        description: "Actual page number."
+                        example: 1
+                    lastPage:
+                        type: "int"
+                        description: "Last page number."
+                        example: 10
+                    numberOfItems:
+                        type: "int"
+                        description: "Number of items by page."
+                        example: 20
+                    sort:
+                        type: "string"
+                        description: "Sort field of list."
+                        example: 'id'
+                    order:
+                        type: "string"
+                        description: "Order of list."
+                        example: 'asc'
+                    error:
+                        $ref: '#/definitions/badRequest'
+            notFoundRequest:
+                type: object
+                properties:
+                    message:
+                        type: string
+                        description: "Error message"
+                        example: "Skeleton_not_found"
+                    code:
+                        type: integer
+                        description: "Error code"
+                        example: 40010
+                    params:
+                        type: array
+                        description: "Error parameters"
+                        items:
+                            type: string
+                        example:
+                            - "12345678"
+                            - 123
+                    traceId:
+                        type: string
+                        description: "Uniq log id"
+                        example: '5dfb82297ffbf1.50522081'
+            notFoundResponse:
+                type: object
+                properties:
+                    status:
+                        type: "boolean"
+                        description: "boolean of request success."
+                        example: 'false'
+                    error:
+                        $ref: '#/definitions/notFoundRequest'
+                    page:
+                        type: "int"
+                        description: "Actual page number."
+                        example: 1
+                        lastPage:
+                            type: "int"
+                            description: "Last page number."
+                            example: 10
+                        numberOfItems:
+                            type: "int"
+                            description: "Number of items by page."
+                            example: 20
+                        sort:
+                            type: "string"
+                            description: "Sort field of list."
+                            example: 'id'
+                        order:
+                            type: "string"
+                            description: "Order of list."
+                            example: 'asc'
+            internalErrorRequest:
+                type: object
+                properties:
+                    message:
+                        type: string
+                        description: "Error message"
+                        example: "internal_error"
+                    code:
+                        type: integer
+                        description: "Error code"
+                        example: 1
+                    params:
+                        type: array
+                        description: "Error parameters"
+                        items:
+                            type: string
+                    traceId:
+                        type: string
+                        description: "Uniq log id"
+                        example: '5dfb82297ffbf1.50522081'
+            internalErrorResponse:
+                type: object
+                properties:
+                    status:
+                        type: "boolean"
+                        description: "boolean of request success."
+                        example: 'false'
+                    error:
+                        $ref: '#/definitions/internalErrorRequest'
+                    page:
+                        type: "int"
+                        description: "Actual page number."
+                        example: 1
+                        lastPage:
+                            type: "int"
+                            description: "Last page number."
+                            example: 10
+                        numberOfItems:
+                            type: "int"
+                            description: "Number of items by page."
+                            example: 20
+                        sort:
+                            type: "string"
+                            description: "Sort field of list."
+                            example: 'id'
+                        order:
+                            type: "string"
+                            description: "Order of list."
+                            example: 'asc'
